@@ -18,3 +18,6 @@ class BasePage:
         except NoSuchElementException:
             return False
         return True
+
+    def get_current_url(self):
+        self.browser.current_url
