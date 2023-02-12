@@ -19,15 +19,25 @@ class ProductPage(BasePage):
         self.should_be_correct_price(expected_price)
 
     def should_be_success_message(self):
-        assert self.is_element_present(*ProductPageLocators.BOOK_ADDED_SUCCESS_MESSAGE), \
+        assert self.is_element_present(*ProductPageLocators.PRODUCT_ADDED_SUCCESS_MESSAGE), \
             "Product wasn't added to the cart"
 
     def should_be_correct_price(self, expected_price):
         product_price = self.browser.find_element(*ProductPageLocators.CART_TOTAL).text
-        assert product_price == expected_price,\
+        assert product_price == expected_price, \
             f"cart total expected to be {expected_price} but was: {product_price}"
 
     def should_be_correct_product_name(self, expected_product_name):
         product_name = self.browser.find_element(*ProductPageLocators.SUCCESS_MESSAGE_PRODUCT_NAME).text
-        assert product_name == expected_product_name,\
+        assert product_name == expected_product_name, \
             f"Product name in success message expected to be {expected_product_name} but was: {product_name}"
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.PRODUCT_ADDED_SUCCESS_MESSAGE), "guest can see " \
+                                                                                                "success message (" \
+                                                                                                "expected that don't)"
+
+    def should_be_success_message_disappeared(self):
+        assert self.is_disappeared(*ProductPageLocators.PRODUCT_ADDED_SUCCESS_MESSAGE), "success message didn't " \
+                                                                                        "disappear"
+
