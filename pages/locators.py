@@ -10,4 +10,13 @@ class LoginPageLocators:
     REGISTER_FORM = (By.ID, "register_form")
 
 
-
+class ProductPageLocators:
+    PRODUCT_NAME = (By.XPATH, "//div[contains(@class,'product_main')]//h1")
+    PRICE = (By.CLASS_NAME, "price_color")
+    ADD_TO_CART = (By.CLASS_NAME, "btn-add-to-basket")
+    BOOK_ADDED_SUCCESS_MESSAGE = (By.XPATH, "//div[contains(@class,'alertinner') and contains(.,'был добавлен в вашу "
+                                           "корзину')]")
+    SUCCESS_MESSAGE_PRODUCT_NAME = (By.XPATH, "//div[contains(@class,'alertinner') and contains(.,'был добавлен в вашу "
+                                           "корзину')]//strong ")
+    CART_TOTAL = (By.XPATH, "//div[contains(@class,'alertinner') and contains(.,'Стоимость корзины теперь "
+                            "составляет')]//strong ")
