@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 class BasePageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BASKET_LINK = (By.XPATH, "//a[@class='btn btn-default' and (contains(@href,'/basket/'))]")
 
 
 class MainPageLocators:
@@ -25,3 +26,9 @@ class ProductPageLocators:
                                               "корзину')]//strong ")
     CART_TOTAL = (By.XPATH, "//div[contains(@class,'alertinner') and contains(.,'Стоимость корзины теперь "
                             "составляет')]//strong ")
+
+
+class BasketPageLocators:
+    EMPTY_MESSAGE = (By.XPATH, "//div[@id='content_inner' and (contains(.,'Your basket is empty') or (contains(.,"
+                               "'Ваша корзина пуста')))]")
+    PRODUCTS_LIST = (By.CSS_SELECTOR, '.basket-items')
