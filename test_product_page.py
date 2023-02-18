@@ -7,6 +7,7 @@ from .pages.product_page import ProductPage
 LOGIN_URL = "http://selenium1py.pythonanywhere.com/en-gb/accounts/login/"
 
 
+@pytest.mark.need_review
 @pytest.mark.parametrize('link', ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0",
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1",
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer2",
@@ -38,6 +39,7 @@ def test_guest_cant_see_success_message_after_adding_product_to_basket(browser, 
     product_page.should_not_be_success_message()
 
 
+@pytest.mark.need_review
 @pytest.mark.parametrize('link', ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"])
 def test_guest_cant_see_success_message(browser, link):
     product_page = ProductPage(browser, link)
@@ -81,6 +83,7 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
 
 
 @pytest.mark.user_tests
+@pytest.mark.need_review
 class TestUserAddToBasketFromProductPage:
     @pytest.fixture(scope='function', autouse=True)
     def setup(self, browser):
